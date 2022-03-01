@@ -1,6 +1,6 @@
 import comtypes.client
 
-def PPTtoPDF(inputFileName, outputFileName):
+def ppt2Pdf(inputFileName, outputFileName):
     #as found on https://docs.microsoft.com/en-us/office/vba/api/powerpoint.ppsaveasfiletype
     pptToPdfFormatType = 32
     powerpoint = comtypes.client.CreateObject("Powerpoint.Application")
@@ -12,7 +12,7 @@ def PPTtoPDF(inputFileName, outputFileName):
     deck.Close()
     powerpoint.Quit()
 
-def DOCtoPDF(inputFileName, outputFileName):
+def doc2Pdf(inputFileName, outputFileName):
     #as found on https://docs.microsoft.com/en-us/office/vba/api/word.wdsaveformat
     docToPdfFormatType = 17
     word = comtypes.client.CreateObject("Word.Application")
@@ -29,5 +29,5 @@ pptInFile = "./samplePptx.pptx"
 pdf2pptOutFile = "./samplePptxTest"
 docInFile = "./sampleWord.docx"
 pdf2docOutFile = "./sampleWordTest"
-PPTtoPDF(pptInFile, pdf2pptOutFile)
-DOCtoPDF(docInFile, pdf2docOutFile)
+ppt2Pdf(pptInFile, pdf2pptOutFile)
+doc2Pdf(docInFile, pdf2docOutFile)
